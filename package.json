@@ -1,0 +1,51 @@
+{
+  "name": "vue3-project",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build:test": "vue-cli-service build --mode test",
+    "build:dev": "vue-cli-service build --mode development",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "debug": "http-server -p 3000 dist/",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "postpublish": "git add CHANGELOG.md && git commit -m 'chore: changelog [ci skip]' && git push"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "vue": "^3.0.0-beta.1",
+    "vue-router": "^4.0.0-alpha.5",
+    "vuex": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.3.0",
+    "@vue/cli-plugin-eslint": "~4.3.0",
+    "@vue/cli-plugin-router": "~4.3.0",
+    "@vue/cli-plugin-unit-jest": "~4.3.0",
+    "@vue/cli-plugin-vuex": "~4.3.0",
+    "@vue/cli-service": "~4.3.0",
+    "@vue/compiler-sfc": "^3.0.0-beta.1",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "conventional-changelog-cli": "^2.0.34",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.0.0-alpha.0",
+    "lint-staged": "^10.2.2",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
+    "vue-cli-plugin-vue-next": "~0.1.2",
+    "yorkie": "^2.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
